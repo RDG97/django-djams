@@ -13,7 +13,6 @@ class GenreSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         instance.genre = validated_data.get('genre', instance.genre)
         instance.description = validated_data.get('description', instance.description)
-        
         instance.save()
         return instance
 
@@ -50,7 +49,6 @@ class AlbumSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         print('vdata:', validated_data)
         return Album.objects.create(**validated_data)
-
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
         instance.description = validated_data.get('description', instance.description)
