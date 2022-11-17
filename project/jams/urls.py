@@ -17,6 +17,7 @@ urlpatterns = [
 
     path('Playlists/', views.PlaylistList.as_view()),
     path('Playlists/<int:pk>/', views.PlaylistDetail.as_view()),
+    
     path('PlaylistSongs/', views.PlaylistSongList.as_view()),
     path('PlaylistSongs/<int:pk>', views.PlaylistSongDetail.as_view())
 ]

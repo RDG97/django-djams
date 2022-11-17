@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Artist(models.Model):
     name = models.CharField(max_length=30, default='none given')
     description = models.CharField(max_length=150, default='none given')

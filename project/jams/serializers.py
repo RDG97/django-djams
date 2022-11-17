@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from jams.models import Genre, Artist, Album, Song, Playlist, Playlist_songs
 
-
 class GenreSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     genre = serializers.CharField(required=True, allow_blank=False, max_length=30)
