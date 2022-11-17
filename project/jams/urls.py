@@ -11,8 +11,14 @@ urlpatterns = [
 
     path('Albums/', views.AlbumList.as_view()),
     path('Albums/<int:pk>/', views.AlbumDetail.as_view()),
-#    path('songs/', views.SongList.as_view()),
-#    path('songs/<int:pk>/', views.SongDetail.as_view()),
 
+    path('Songs/', views.SongList.as_view()),
+    path('Songs/<int:pk>/', views.SongDetail.as_view()),
+
+    path('Playlists/', views.PlaylistList.as_view()),
+    path('Playlists/<int:pk>/', views.PlaylistDetail.as_view()),
+    path('PlaylistSongs/', views.PlaylistSongList.as_view()),
+    path('PlaylistSongs/<int:pk>', views.PlaylistSongDetail.as_view())
 ]
+
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -3,9 +3,9 @@ from rest_framework import status, generics
 from django.http import HttpResponse, JsonResponse, Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.views.decorators.csrf import csrf_exempt
-from jams.models import Genre, Artist, Album
-from jams.serializers import GenreSerializer, ArtistSerializer, AlbumSerializer
+from jams.models import Genre, Artist, Album, Song, Playlist, Playlist_songs
+from jams.serializers import GenreSerializer, ArtistSerializer, AlbumSerializer, SongSerializer, PlaylistSerializer, PlaylistSongsSerializer
+from django.http import Http404
 
 class GenreList(generics.ListCreateAPIView):
     queryset = Genre.objects.all()
@@ -32,16 +32,29 @@ class AlbumDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = AlbumSerializer
 
 
-#class SongList(generics.ListCreateAPIView):
-#    queryset = Song.objects.all()
-#    serializer_class = SongSerializer
-#
-#class SongDetail(generics.RetrieveUpdateDestroyAPIView):
-#    queryset = Song.objects.all()
-#    serializer_class = SongSerializer()
-#
+class SongList(generics.ListCreateAPIView):
+    queryset = Song.objects.all()
+    serializer_class = SongSerializer
 
+class SongDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Song.objects.all()
+    serializer_class = SongSerializer
 
+class PlaylistList(generics.ListCreateAPIView):
+    queryset = Playlist.objects.all()
+    serializer_class = PlaylistSerializer
+
+class PlaylistDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Playlist.objects.all()
+    serializer_class = PlaylistSerializer
+
+class PlaylistSongList(generics.ListCreateAPIView):
+    queryset = Playlist_songs.objects.all()
+    serializer_class = PlaylistSongsSerializer
+
+class PlaylistSongDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Playlist_songs.objects.all()
+    serializer_class = PlaylistSongsSerializer
 
 
 #class SongList(APIView):
